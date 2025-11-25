@@ -54,6 +54,13 @@ Symbolic Lab is a Next.js application designed to visualize and interact with th
 
 ## License
 
-**Proprietary / Commercial**
+## License
 
-This software is not open source. It is licensed only for commercial use upon payment and explicit consent from the author. See [LICENSE](LICENSE) for details.
+**Dual Licensing: GPLv3 + Commercial**
+
+This project is open source under the **GNU General Public License v3.0 (GPLv3)**.
+
+- **Open Source Use**: You are free to use, modify, and distribute this software under the terms of the GPLv3. If you include this software in your own project, your project must also be open source under the GPLv3.
+- **Commercial/Proprietary Use**: If you wish to use this software in a proprietary product (closed source) or without the restrictions of the GPLv3, you **must obtain a commercial license** from the author. Please contact us for approval and licensing terms.
+
+[Read the GPLv3 License](LICENSE)
