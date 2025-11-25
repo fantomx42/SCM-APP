@@ -1,16 +1,17 @@
 'use server'
 
-import { auth } from "@/lib/auth"
-import { prisma } from "@/lib/prisma" // We need to create this singleton
-import { encrypt, decrypt } from "@/lib/crypto"
-import { revalidatePath } from "next/cache"
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { encrypt, decrypt } from "@/lib/crypto";
+import { revalidatePath } from "next/cache";
+import { Prisma } from "@prisma/client";
 
 export async function saveSimulation(data: {
     name: string;
-    settings: any;
-    results: any; // This will be encrypted
+    settings: Prisma.JsonValue;
+    results: Prisma.JsonArray;
 }) {
-    const session = await auth()
+    const session = await auth();
     if (!session?.user?.id) {
         throw new Error("Unauthorized")
     }

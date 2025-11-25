@@ -7,7 +7,7 @@ interface SymbolNodeProps {
 }
 
 export const SymbolNode: React.FC<SymbolNodeProps> = ({ entity }) => {
-    const { position, metrics, label, vars } = entity;
+    const { position, metrics, label } = entity;
 
     // Color based on Stability (Green -> Red)
     // or maybe Blue (Stable) -> Orange (Unstable) -> Gray (Collapsed)

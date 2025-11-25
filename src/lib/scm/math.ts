@@ -1,4 +1,4 @@
-import { SCMVariables, GlobalFieldState, DerivedMetrics } from './types';
+import { SCMVariables, GlobalFieldState } from './types';
 
 /**
  * Core SCM Stability Score Calculation
