@@ -16,18 +16,17 @@ export default function TelemetryGraph({
     color?: 'indigo' | 'emerald' | 'purple' | 'rose';
     height?: number;
 }) {
-    const [data, setData] = useState<DataPoint[]>([]);
-
-    // Generate initial data
-    useEffect(() => {
-        const initialData = Array.from({ length: 20 }, (_, i) => ({
+    const [data, setData] = useState<DataPoint[]>(() =>
+        Array.from({ length: 20 }, (_, i) => ({
             value: 50 + Math.random() * 30 - 15,
             timestamp: Date.now() - (20 - i) * 1000,
-        }));
-        setData(initialData);
+        }))
+    );
 
+    useEffect(() => {
         const interval = setInterval(() => {
             setData((prev) => {
+                if (prev.length === 0) return [];
                 const lastValue = prev[prev.length - 1].value;
                 const newValue = Math.max(0, Math.min(100, lastValue + (Math.random() * 20 - 10)));
                 return [...prev.slice(1), { value: newValue, timestamp: Date.now() }];

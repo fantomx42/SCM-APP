@@ -1,5 +1,5 @@
 import { SCM_Entity } from './Entity';
-import { GlobalFieldState, DEFAULT_CONSTANTS, SCMVariables } from './types';
+import { GlobalFieldState, DEFAULT_CONSTANTS } from './types';
 import { calculateCompatibility, calculateFusionCoefficient } from './math';
 
 export class SCM_System {
