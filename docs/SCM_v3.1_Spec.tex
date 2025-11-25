@@ -1,0 +1,351 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, bm, geometry}
+\geometry{margin=1in}
+
+\title{Symbolic Collapse Model v3.1: Full Formal Specification}
+\author{Tristan Wheeler}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+The Symbolic Collapse Model (SCM) v3.1 defines a quantitative framework for measuring symbolic stability, collapse pressure, evolution, fusion, and systemic compatibility in any symbolic system. Variables include Tonic Stability (T), Entropy Pressure (E), Structural Cohesion (S), Interpretive Integrity (I), and Projective Load (P), each modulated by temporal, environmental, emotional, and nostalgic factors. The model introduces damping, caps, baseline lock, fusion analytics, and full time–dynamic evolution.
+
+\section{Core Variables}
+
+Each symbolic entity (symbol, packet, frame, or composite) carries the following primary variables:
+
+\[
+T \in [0,1], \quad
+E \in [0,1], \quad
+S \in [0,1], \quad
+I \in [0,1], \quad
+P \in [0,1].
+\]
+
+Definitions:
+
+\begin{itemize}
+  \item $T$: \textbf{Tonic Stability}. Internal stability, resistance to drift.
+  \item $E$: \textbf{Entropy Pressure}. Degree of disorder applied internally or externally.
+  \item $S$: \textbf{Structural Cohesion}. Coherence of internal symbolic relationships.
+  \item $I$: \textbf{Interpretive Integrity}. Fidelity of meaning across contexts.
+  \item $P$: \textbf{Projective Load}. Cognitive/emotional burden imposed by the symbol.
+\end{itemize}
+
+All variables evolve over time and are modulated by the v3.1 modifiers.
+
+\section{Modifier Fields}
+
+\subsection{1. Temporal Decay}
+Each variable decays toward an equilibrium unless stabilized:
+
+\[
+\frac{dX}{dt} = -\lambda_X (X - X_{\text{base}}),
+\]
+where $X \in \{T, E, S, I, P\}$ and $\lambda_X$ is decay rate.
+
+\subsection{2. Cultural Compatibility}
+A symbol interacts with a cultural field $C$:
+
+\[
+C_{\text{comp}} = 1 - \| \bm{s} - \bm{c} \|,
+\]
+where $\bm{s}$ is the symbol’s cultural vector and $\bm{c}$ is the field vector.
+
+\subsection{3. Environmental Stability}
+Environmental field $E_f \in [0,1]$ modulates:
+
+\[
+T' = T \cdot E_f, \quad S' = S \cdot E_f.
+\]
+
+\subsection{4. Nostalgia Weight (NW)}
+Nostalgia strengthens structural connections:
+
+\[
+S' = S + \alpha_{NW} \cdot NW \cdot (1-S).
+\]
+
+Additionally, nostalgia-induced reformation events occur when:
+
+\[
+NW > \theta_{NW} \Rightarrow S \leftarrow S + \Delta S_{\text{reform}}.
+\]
+
+\subsection{5. Emotional Resonance Field (ERF)}
+Affects interpretive stability:
+
+\[
+I' = I + \beta_{ERF} \cdot ERF \cdot (1 - I).
+\]
+
+\subsection{6. Variable Influence Caps}
+Each variable is clamped:
+
+\[
+X_{\text{eff}} = \min(X', X_{\max}).
+\]
+
+\subsection{7. Symbolic Damping}
+Global damping reduces runaway divergence:
+
+\[
+X_{\text{damped}} = X_{\text{eff}} - \gamma_X (X_{\text{eff}} - \mu_X),
+\]
+where $\mu_X$ is system mean.
+
+\subsection{8. Baseline Lock}
+Prevents collapse below a minimum:
+
+\[
+X_{\text{locked}} = \max(X_{\text{damped}}, X_{\min}).
+\]
+
+\section{Core SCM Stability Score}
+
+Let the stability vector be:
+
+\[
+\bm{v} = (T, S, I),
+\quad
+\bm{p} = (E, P).
+\]
+
+Define stabilizers and destabilizers:
+
+\[
+\mathcal{S} = w_T T + w_S S + w_I I,
+\]
+\[
+\mathcal{D} = w_E E + w_P P.
+\]
+
+v3.1 introduces interaction terms:
+
+\[
+\mathcal{X} =
+\eta_{TS} (T S) +
+\eta_{SI} (S I) +
+\eta_{TI} (T I) -
+\eta_{EP} (E P).
+\]
+
+The SCM Stability score is:
+
+\[
+\boxed{
+SCM = \mathcal{S} - \mathcal{D} + \mathcal{X}
+}
+\]
+
+Bounded to:
+
+\[
+SCM_{\text{final}} = \max(0, \min(1, SCM)).
+\]
+
+\section{Symbol Evolution Over Time}
+
+Each SCM variable evolves as:
+
+\[
+\frac{dT}{dt} = -\lambda_T(T-T_{\text{base}}) + k_{ST}S + k_{IT}I - k_{ET}E - k_{PT}P,
+\]
+
+\[
+\frac{dS}{dt} = -\lambda_S(S-S_{\text{base}}) + k_{TS}T + k_{IS}I - k_{ES}E,
+\]
+
+\[
+\frac{dI}{dt} = -\lambda_I(I-I_{\text{base}}) + k_{TI}T + k_{SI}S - k_{EI}E,
+\]
+
+\[
+\frac{dE}{dt} = -\lambda_E(E-E_{\text{base}}) + \xi_E - k_{TE}T - k_{SE}S,
+\]
+
+\[
+\frac{dP}{dt} = -\lambda_P(P-P_{\text{base}}) + \xi_P - k_{TP}T.
+\]
+
+Where $\xi_E, \xi_P$ represent external entropy or cognitive load.
+
+\section{Signal-to-Noise Stability Field}
+
+Noise floor:
+
+\[
+N = \sigma_E E + \sigma_P P.
+\]
+
+Signal integrity:
+
+\[
+Sig = T + S + I.
+\]
+
+Stability ratio:
+
+\[
+R_{SN} = \frac{Sig}{Sig + N}.
+\]
+
+Collapse threshold when:
+
+\[
+R_{SN} < \theta_{collapse}.
+\]
+
+\section{Compatibility Model}
+
+Two symbols $A$ and $B$ have compatibility:
+
+\[
+\bm{v}_A = (T_A, E_A, S_A, I_A, P_A),
+\qquad
+\bm{v}_B = (T_B, E_B, S_B, I_B, P_B).
+\]
+
+Raw distance:
+
+\[
+d = \|\bm{v}_A - \bm{v}_B\|_2.
+\]
+
+Compatibility:
+
+\[
+Comp = 1 - \frac{d}{\sqrt{5}}.
+\]
+
+Modulated by:
+
+\[
+Comp_{\text{adj}} = Comp \cdot C_{\text{comp}} \cdot E_f.
+\]
+
+\section{Fusion Analytics (v3.1)}
+
+\subsection{Fusion Coefficient}
+Fusion viability:
+
+\[
+F_c = Comp_{\text{adj}} \cdot \frac{SCM_A + SCM_B}{2}.
+\]
+
+\subsection{Child Symbol Variables}
+
+\[
+T_C = (T_A + T_B)/2 + \phi_T F_c(1 - |T_A - T_B|),
+\]
+
+\[
+S_C = (S_A + S_B)/2 + \phi_S F_c,
+\]
+
+\[
+I_C = (I_A + I_B)/2 + \phi_I F_c,
+\]
+
+\[
+E_C = (E_A + E_B)/2 - \phi_E F_c,
+\]
+
+\[
+P_C = (P_A + P_B)/2 - \phi_P F_c.
+\]
+
+\section{Nostalgia-Induced Fusion Events}
+
+When both symbols have high nostalgia:
+
+\[
+NW_A, NW_B > \theta_{NWfusion}
+\Rightarrow
+S_C \leftarrow S_C + \Delta_{NWfusion}.
+\]
+
+\section{Emotional Resonance Interaction}
+
+Emotional resonance between symbols:
+
+\[
+ERF_{AB} = \rho \cdot \langle ERF_A, ERF_B \rangle.
+\]
+
+Modulates interpretive alignment:
+
+\[
+I_C \leftarrow I_C + \beta_{ERF} ERF_{AB}.
+\]
+
+\section{Stability Output Schema}
+
+Every SCM evaluation outputs a record:
+
+\[
+\mathcal{O} =
+\{
+SCM_{\text{final}},
+T,S,I,E,P,
+NW,
+ERF,
+C_{\text{comp}},
+E_f,
+R_{SN},
+F_c,
+\Delta_{fusion},
+\Delta_{NW}
+\}.
+\]
+
+\section{SCM v3.1 Full Equation Set}
+
+\[
+\boxed{
+SCM_{\text{final}} =
+\max(0,\min(1,
+(w_T T + w_S S + w_I I)
+-
+(w_E E + w_P P)
++
+\eta_{TS}TS +
+\eta_{SI}SI +
+\eta_{TI}TI -
+\eta_{EP}EP
+))}
+\]
+
+\[
+\boxed{
+\frac{d\bm{v}}{dt} =
+A\bm{v} + \bm{b}
+}
+\]
+
+Where $A$ is the interaction matrix and $\bm{b}$ contains baseline drift, external entropy, and load terms.
+
+\[
+\boxed{
+F_c = Comp_{\text{adj}} \cdot \frac{SCM_A + SCM_B}{2}
+}
+\]
+
+\[
+\boxed{
+\bm{v}_C = f(\bm{v}_A,\bm{v}_B,F_c,NW,ERF)
+}
+\]
+
+\[
+\boxed{
+R_{SN} = \frac{T+S+I}{T+S+I + \sigma_E E + \sigma_P P}
+}
+\]
+
+\section{Conclusion}
+This completes the formal SCM v3.1 specification, including all variable definitions, modifiers, dynamic equations, fusion framework, emotional/nostalgic effects, and stability metrics.
+
+\end{document}
