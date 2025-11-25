@@ -48,4 +48,5 @@ jobs:
     - name: Run Linting
       run: npm run lint
 
-    # Add testing steps here (e.g., run containers and curl endpoints)
+    - name: Run Tests
+      run: npm test
