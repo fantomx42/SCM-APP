@@ -54,4 +54,6 @@ Symbolic Lab is a Next.js application designed to visualize and interact with th
 
 ## License
 
-[MIT](LICENSE)
+**Proprietary / Commercial**
+
+This software is not open source. It is licensed only for commercial use upon payment and explicit consent from the author. See [LICENSE](LICENSE) for details.
